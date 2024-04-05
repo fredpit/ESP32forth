@@ -18,3 +18,9 @@ https://github.com/flagxor/ueforth
 
 There are several optional components that you can add into ESP32forth.
 See: optional/README-optional.txt
+
+#############################################################################################
+
+Modifications : added support for ESP32 second I2C interface (Wire1), primarily used to
+make some HAT usable (in addition to internal I2C) with M5Stack Stick C.
+
