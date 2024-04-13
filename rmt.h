@@ -18,8 +18,19 @@
 
 #include "driver/rmt.h"
 
+rmt_config_t rmt_def_rx_config = RMT_DEFAULT_CONFIG_RX((gpio_num_t) 0, RMT_CHANNEL_0);
+rmt_config_t rmt_def_tx_config = RMT_DEFAULT_CONFIG_TX((gpio_num_t) 0, RMT_CHANNEL_0);
+
 #define OPTIONAL_RMT_VOCABULARY V(rmt)
 #define OPTIONAL_RMT_SUPPORT \
+  YV(rmt, rmt_default_rx_config, \
+            rmt_def_rx_config.channel = (rmt_channel_t) n1; \
+            rmt_def_rx_config.gpio_num = (gpio_num_t) n0; \
+            n0 = (ucell_t) &rmt_def_rx_config; NIP)  \
+  YV(rmt, rmt_default_tx_config, \
+            rmt_def_tx_config.channel = (rmt_channel_t) n1; \
+            rmt_def_tx_config.gpio_num = (gpio_num_t) n0; \
+            n0 = (ucell_t) &rmt_def_tx_config; NIP)  \
   YV(rmt, rmt_set_clk_div, n0 = rmt_set_clk_div((rmt_channel_t) n1, n0); NIP) \
   YV(rmt, rmt_get_clk_div, n0 = rmt_get_clk_div((rmt_channel_t) n1, b0); NIP) \
   YV(rmt, rmt_set_rx_idle_thresh, n0 = rmt_set_rx_idle_thresh((rmt_channel_t) n1, n0); NIP) \

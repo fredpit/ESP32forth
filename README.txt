@@ -21,6 +21,10 @@ See: optional/README-optional.txt
 
 #############################################################################################
 
-Modifications : added support for ESP32 second I2C interface (Wire1), primarily used to
+Modifications : 
+
+* added support for ESP32 second I2C interface (Wire1), primarily used to
 make some HAT usable (in addition to internal I2C) with M5Stack Stick C.
+
+* added default config for tx and rx rmt device
 
